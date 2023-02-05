@@ -1,0 +1,27 @@
+version: '3.2'
+
+volumes:
+  nextcloud:
+  nextcloud-db:
+
+services:
+  db:
+    image: mariadb
+    restart: always
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - nextcloud-db:/var/lib/mysql:rw
+    env_file:
+      - nextcloud.env
+
+  app:
+    image: nextcloud
+    restart: always
+    ports:
+      - 8082:80
+    links:
+      - db
+    volumes:
+      - nextcloud:/var/www/html
+    env_file:
+      - nextcloud.env
