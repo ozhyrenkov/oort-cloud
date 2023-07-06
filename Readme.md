@@ -16,6 +16,15 @@ The *Oort cloud* is intended to be easy-to-go setup for this kind of tasks, main
 - Jupyterhub server - for analytical work with focus on data analysis in python.
 - [Redash](https://redash.io) - easy BI on multiple databases tool, allows to convert SQL queries into Dashboards.
 
+
+## How to run
+All is powered via Makefile:
+- `make drive` 
+- `make aleph`
+- `make wiki`
+- `make all`
+
+
 ## Next steps
 - [x] One docker-compose version for all stacks.
 - [x] No port conflicts between services.
